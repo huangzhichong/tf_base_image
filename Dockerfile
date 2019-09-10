@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+# use apt mirrors
+COPY sources.list /etc/apt/sources.list
+
 # Configure directories for ld and pkg-config
 RUN echo "/usr/local/ffmpeg/lib\n/usr/local/tensorflow/lib" > /etc/ld.so.conf.d/deps.conf
 ENV PKG_CONFIG_PATH $PKG_CONFIG_PATH:/usr/local/ffmpeg/lib/pkgconfig/:/usr/local/tensorflow/lib/pkgconfig/
